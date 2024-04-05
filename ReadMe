@@ -1,0 +1,45 @@
+JWT JWKS Server Overview
+
+The JWT JWKS Server is a Node.js application designed to distribute public keys with unique identifiers (kids) to validate JSON Web Tokens (JWTs). It incorporates key expiration for better security and includes an authentication endpoint to issue JWTs.
+
+Quick Start Guide
+
+Requirements
+Before getting started, ensure you have these installed:
+
+Node.js (version 14 or higher)
+npm (Node Package Manager)
+
+Setup
+To set up the server on your system, follow these steps:
+
+Clone the repository to your local machine by running:
+git clone https://github.com/your-username/jwt-jwks-server.git
+
+Navigate to the project directory:
+cd jwt-jwks-server
+
+Install the necessary dependencies with npm:
+npm install
+
+How to Use:
+Configuration
+You can modify server settings and manage RSA key pairs within the server.js file. Initially, the server generates a single RSA key pair for demo purposes, but you should consider a more comprehensive key management approach for live environments.
+
+Launching the Server
+Start the server using:
+npm start
+
+By default, it listens on port 8080, but we can adjust the port in the server.js file.
+
+Available Endpoints
+/jwks Endpoint: This delivers public keys in JWKS (JSON Web Key Set) format, including only those keys that are still valid.
+/auth Endpoint: Utilized for authentication and JWT issuance, it provides a valid, signed JWT upon a POST request. If the "expired" query is used, it will issue a JWT with an expired key and timestamp.
+Testing
+
+The project includes basic tests using Mocha and Chai. Run the tests with:
+npm test
+
+
+Contributing
+Contributions are welcome! Feel free to report issues or suggest improvements by opening an issue or submitting a pull request.
